@@ -18,6 +18,8 @@ A detailed view of the current and historical Danforth Center Bioinformatics inf
 | chronos  | 4    | 4       | 4        | 0            | Cron scheduler, File transfers            |
 | jupyter  | 8    | 8       | 16       | 0            | Small interactive jobs, Jupyter notebook  |
 | adama    | 8    | 8       | 16       | 0            | File server (NFS)                         |
+| cavil    | 8    | 8       | 16       | 0            | File server (NFS)                         |
 | roslin   | 8    | 8       | 16       | 0            | File server (NFS)                         |
 | dradis   | 1    | 1       | 2        | 0            | User authentication (LDAP)                |
 | tyrol    | 2    | 2       | 2        | 0            | Web server                                |
+| viper    | 40   | 80      | 512      | 558          | GiA Roots                                 |
