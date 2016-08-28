@@ -1,0 +1,21 @@
+site_name: Bioinformatics
+site_url: http://bioinformatics.readthedocs.io/
+site_description: The Bioinformatics Core Facility at the Donald Danforth Plant Science Center
+site_author: Bioinformatics
+repo_url: https://github.com/danforthcenter/bioinformatics
+copyright: Copyright 2016, Donald Danforth Plant Science Center
+
+pages:
+- Home: index.md
+- Documentation:
+  - "Cluster overview": cluster_overview.md
+  - "HTCondor user's guide": htcondor.md
+  - "Bioinformatics software":
+    - "ALLPATHS-LG": allpaths.md
+    - "Bowtie2": bowtie2.md
+    - "SRA-Tools": sratools.md
+    - "Trinity": trinity.md
+
+markdown_extensions:
+  - toc:
+      permalink: True
