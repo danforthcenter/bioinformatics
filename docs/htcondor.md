@@ -263,6 +263,22 @@ To view a history of jobs you have submitted use `condor_history <username>`.
   * The same syntax as request_memory
   * The Danforth Center system uses an NFS shared filesystem, so requesting disk may not generally be necessary. Requesting disk is recommended if you are configuring jobs to use scratch space (see below).
 
+### Interactive jobs
+
+In general, most jobs should be submitted using job files, but in cases
+where an interactive session is needed (for testing for example), shell
+sessions can be requested from the HTCondor queue. Interactive sessions
+are similar to logging into a server with ssh except that they will
+automatically log out after 2 hours of inactivity and once disconnected
+will terminate any running jobs, including `screen` and `tmux` sessions.
+
+```
+condor_submit -interactive accounting_group=$CONDOR_GROUP getenv=true request_cpus=1 request_memory=1G
+```
+
+The CPU and memory (RAM) can be adjusted accordingly. Furthermore, any
+additional HTCondor job parameters can be supplied to the command.
+
 ### Job control
 
 If you need to remove a job from the queue, find the job ID with condor_q:
