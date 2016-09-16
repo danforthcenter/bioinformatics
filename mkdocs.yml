@@ -9,7 +9,10 @@ pages:
 - Home: index.md
 - Documentation:
   - "Cluster overview": cluster_overview.md
-  - "HTCondor user's guide": htcondor.md
+  - "HTCondor user's guide":
+    - "Overview": htcondor_overview.md
+    - "Getting started": htcondor_getting_started.md
+    - "Running jobs": htcondor_running_jobs.md
   - "Bioinformatics software":
     - "ALLPATHS-LG": allpaths.md
     - "Bowtie2": bowtie2.md
