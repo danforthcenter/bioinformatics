@@ -118,7 +118,7 @@ Number of users: 1            0         5.53                   3/02/2016 23:37
 To view a history of jobs you have submitted use
 `condor_history <username>`.
 
-## Other job description file configuration options
+## Other job configuration options
 
 * `notification = <Always | Complete | Error | Never>`
   * Default = Never
@@ -209,7 +209,7 @@ accounting_group = $ENV(CONDOR_GROUP)
 queue
 ```
 
-## Running multiple jobs of the same type with a single job file
+## Running multiple jobs with a single job file
 
 The example below will run four cufflinks jobs, substituting the value
 of `group` in every time `queue` is called.
