@@ -7,14 +7,15 @@ A detailed view of the current and historical Danforth Center Bioinformatics inf
 
 | Server   | CPUs | Threads | RAM (GB) | Scratch (GB) | Function                                  |
 | -------- | ---- | ------- | -------- | ------------ | ----------------------------------------- |
-| apollo   | 4    | 4       | 4        | 0            | Login, HTCondor job scheduler, Globus FTP |
+| apollo   | 4    | 4       | 4        | 0            | Login, Globus FTP                         |
 | basestar | 4    | 4       | 4        | 218          | HTCondor central manager                  |
 | aerilon  | 40   | 80      | 256      | 1024         | HTCondor job execution                    |
+| pacifica | 40   | 80      | 1024     | 411          | HTCondor job execution                    |
 | pallas   | 56   | 112     | 512      | 318          | HTCondor job execution                    |
 | pegasus  | 40   | 80      | 256      | 1024         | HTCondor job execution                    |
 | tauron   | 40   | 80      | 256      | 1024         | HTCondor job execution                    |
 | thanatos | 56   | 112     | 512      | 318          | HTCondor job execution                    |
-| scorpia  | 40   | 80      | 256      | 0            | Ad hoc jobs                               |
+| scorpia  | 40   | 80      | 256      | 0            | HTCondor job execution                    |
 | chronos  | 4    | 4       | 4        | 0            | Cron scheduler, File transfers            |
 | jupyter  | 8    | 8       | 16       | 0            | Small interactive jobs, Jupyter notebook  |
 | adama    | 8    | 8       | 16       | 0            | File server (NFS)                         |
