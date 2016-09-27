@@ -2,10 +2,10 @@
 
 ## Accessing HTCondor
 
-Currently all HTCondor transactions can be done from apollo or jupyter.
+Currently all HTCondor transactions can be done from `six`.
 For work that needs to be done outside of the queue
 (e.g. software development/debugging, small file operations, etc.),
-please use the jupyter server via shell or web access.
+please use the `six` server or request an interactive session (see [HTCondor - Running Jobs](htcondor_running_jobs.md)).
 
 ## Basic commands
 
@@ -49,7 +49,7 @@ slot1@thanatos.ddp LINUX      X86_64 Unclaimed Idle      2.000 499558  6+20:46:2
 In the example below one job is in the queue and is running. The ST column lists the state of each job: I = Idle, R = Running, X = Removed, > = Transferring input files, < = Transferring output files.
 
 ```
--- Schedd: apollo.ddpsc.org : <10.5.1.11:15151?...
+-- Schedd: six.ddpsc.org : <10.5.1.63:15151?...
 ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
 30.0   nfahlgren       3/3  22:43   0+00:00:02 R  0   3.2  samtools view -b -
 

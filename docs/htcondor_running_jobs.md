@@ -152,7 +152,7 @@ additional HTCondor job parameters can be supplied to the command.
 If you need to remove a job from the queue, find the job ID with condor_q:
 
 ```
--- Schedd: apollo.ddpsc.org : <10.5.1.11:15151?...
+-- Schedd: six.ddpsc.org : <10.5.1.63:15151?...
 ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
 30.0   nfahlgren       3/3  22:43   0+00:00:02 R  0   3.2  samtools view -b -
 
