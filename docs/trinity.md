@@ -1,12 +1,18 @@
 # Trinity
 
+**About**: De novo transcriptome assembly.
+
 **Version**: 2.1.1
+
+**Added**: 2015-10-28
+
+**Updated**: 2015-10-28
 
 **Installation directory**: /shares/bioinfo/installs/trinity
 
 **Source directory**: /shares/bioinfo/installs/trinity
 
-**Site**: [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
+**Link**: [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
 
 ## Example Trinity HTCondor job file
 
