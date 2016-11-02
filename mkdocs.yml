@@ -15,6 +15,7 @@ pages:
     - "Running jobs": htcondor_running_jobs.md
   - "Bioinformatics software":
     - "ALLPATHS-LG": allpaths.md
+    - "Aspera-Connect": aspera.md
     - "Bowtie2": bowtie2.md
     - "Kallisto": kallisto.md
     - "Salmon": salmon.md
