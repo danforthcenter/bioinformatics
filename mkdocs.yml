@@ -16,6 +16,8 @@ pages:
   - "Bioinformatics software":
     - "ALLPATHS-LG": allpaths.md
     - "Bowtie2": bowtie2.md
+    - "Kallisto": kallisto.md
+    - "Salmon": salmon.md
     - "SRA-Tools": sratools.md
     - "Trinity": trinity.md
 
