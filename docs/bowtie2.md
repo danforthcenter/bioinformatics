@@ -1,14 +1,22 @@
-# Bowtie2
+# Package: Bowtie2
+
+**About**: Short-read alignment program.
 
 **Version**: 2.2.6
+
+**Added**: 2016-04-21
+
+**Updated**: 2016-04-21
 
 **Installation directory**: /shares/bioinfo/bin
 
 **Source directory**: /shares/bioinfo/installs/bowtie2-2.2.6
 
-**Site**: [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+**Link**: [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
-## Example bowtie2 HTCondor job file
+## bowtie2
+
+### Example bowtie2 HTCondor job file
 
 - requests resources (CPUs, RAM, scratch)
 - transfers pair1 and pair2 into scratch
