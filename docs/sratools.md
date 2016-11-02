@@ -1,16 +1,22 @@
-# SRA-Tools
+# Package: SRA-Tools
+
+**About**: Short Read Archive data retrieval and format conversion tools.
 
 **Version**: 2.5.7
+
+**Added**: 2015-10-28
+
+**Updated**: 2015-10-28
 
 **Installation directory**: /shares/bioinfo/bin
 
 **Source directory**: /shares/bioinfo/installs/ncbi/sra-tools
 
-**Site**: [SRA-Tools](http://ncbi.github.io/sra-tools/)
+**Link**: [SRA-Tools](http://ncbi.github.io/sra-tools/)
 
-## Fastq-dump
+## fastq-dump
 
-### Example fastq-dump HTConodr job file
+### Example fastq-dump HTCondor job file
 
 - requests resources (CPUs, RAM, scratch)
 - copies .sra file to scratch and writes .fastq outputs to scratch (faster than writing to NFS)
