@@ -1,9 +1,15 @@
-# ALLPATHS-LG
+# Package: ALLPATHS-LG
+
+**About**: Short-read de novo genome assembler.
 
 **Version**: 52448
+
+**Added**: 2016-01-03
+
+**Updated**: 2016-01-03
 
 **Installation directory**: /shares/bioinfo/bin
 
 **Source directory**: /shares/bioinfo/installs/allpathslg-52488
 
-**Site**: [ALLPATHS-LG](http://www.broadinstitute.org/software/allpaths-lg/blog/)
+**Link**: [ALLPATHS-LG](http://www.broadinstitute.org/software/allpaths-lg/blog/)
