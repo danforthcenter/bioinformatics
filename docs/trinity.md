@@ -1,4 +1,4 @@
-# Trinity
+# Package: Trinity
 
 **About**: De novo transcriptome assembly.
 
@@ -14,7 +14,9 @@
 
 **Link**: [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
 
-## Example Trinity HTCondor job file
+## trinity
+
+### Example Trinity HTCondor job file
 
 * requests resources (CPUs, RAM, scratch)
 * transfers pair1 and pair2 into scratch
