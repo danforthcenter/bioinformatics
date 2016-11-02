@@ -4,9 +4,9 @@
 
 **Version**: 2.5.7
 
-**Added**: 2015-10-28
+**Added**: 2016-01-19
 
-**Updated**: 2015-10-28
+**Updated**: 2016-01-19
 
 **Installation directory**: /shares/bioinfo/bin
 
