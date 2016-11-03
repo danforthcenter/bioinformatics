@@ -21,6 +21,7 @@ pages:
     - "Salmon": salmon.md
     - "SRA-Tools": sratools.md
     - "Trinity": trinity.md
+    - "UCSC Tools": kent.md
 
 markdown_extensions:
   - toc:
