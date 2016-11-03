@@ -16,6 +16,7 @@ pages:
   - "Bioinformatics software":
     - "ALLPATHS-LG": allpaths.md
     - "Aspera-Connect": aspera.md
+    - "Augustus": augustus.md
     - "Bamtools": bamtools.md
     - "Bowtie2": bowtie2.md
     - "Kallisto": kallisto.md
