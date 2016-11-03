@@ -19,6 +19,7 @@ pages:
     - "Augustus": augustus.md
     - "Bamtools": bamtools.md
     - "Bowtie2": bowtie2.md
+    - "BUSCO": busco.md
     - "Kallisto": kallisto.md
     - "Salmon": salmon.md
     - "SRA-Tools": sratools.md
