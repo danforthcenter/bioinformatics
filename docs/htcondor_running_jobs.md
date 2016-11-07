@@ -23,6 +23,7 @@ arguments        = view -b -o alignment.bam alignment.sam
 log              = sam2bam.log
 output           = sam2bam.out
 error            = sam2bam.error
+request_memory   = 10G
 
 ##  Do not edit  ##
 accounting_group = $ENV(CONDOR_GROUP)
@@ -71,6 +72,7 @@ log              = bowtie2.alignment.log
 output           = bowtie2.alignment.out
 error            = bowtie2.alignment.error
 request_cpus     = 30
+request_memory   = 10G
 
 ##  Do not edit  ##
 accounting_group = $ENV(CONDOR_GROUP)
@@ -195,6 +197,7 @@ log              = hisat2.groupID.log
 output           = hisat2.groupID.out
 error            = hisat2.groupID.error
 request_cpus     = 20
+request_memory   = 10G
 transfer_executable = False
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
@@ -232,6 +235,7 @@ log              = $(group).cufflinks.log
 output           = $(group).cufflinks.out
 error            = $(group).cufflinks.error
 request_cpus     = 15
+request_memory   = 10G
 
 ##  Do not edit  ##
 accounting_group = $ENV(CONDOR_GROUP)
