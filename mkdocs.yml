@@ -21,6 +21,7 @@ pages:
     - "Bowtie2": bowtie2.md
     - "BUSCO": busco.md
     - "Kallisto": kallisto.md
+    - "NCBI BLAST+": blast.md
     - "Salmon": salmon.md
     - "SRA-Tools": sratools.md
     - "Trinity": trinity.md
