@@ -9,6 +9,7 @@ pages:
 - Home: index.md
 - Documentation:
   - "Cluster overview": cluster_overview.md
+  - "Data sharing with Globus": globus.md
   - "HTCondor user's guide":
     - "Overview": htcondor_overview.md
     - "Getting started": htcondor_getting_started.md
