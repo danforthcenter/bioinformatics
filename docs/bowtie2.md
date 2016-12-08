@@ -2,7 +2,7 @@
 
 **About**: Short-read alignment program.
 
-**Version**: 2.2.6
+**Version**: 2.2.9
 
 **Added**: 2016-04-21
 
