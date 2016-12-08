@@ -21,6 +21,7 @@ pages:
     - "Bamtools": bamtools.md
     - "Bowtie2": bowtie2.md
     - "BUSCO": busco.md
+    - "HISAT2": hisat2.md
     - "Kallisto": kallisto.md
     - "NCBI BLAST+": blast.md
     - "Salmon": salmon.md
