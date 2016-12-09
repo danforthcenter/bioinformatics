@@ -10,7 +10,7 @@
 
 **Installation directory**: /shares/bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/bowtie2-2.2.6
+**Source directory**: /shares/bioinfo/installs/bowtie2-2.2.9
 
 **Link**: [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
