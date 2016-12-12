@@ -19,6 +19,7 @@ pages:
     - "Aspera-Connect": aspera.md
     - "Augustus": augustus.md
     - "Bamtools": bamtools.md
+    - "BBTools": bbtools.md
     - "Bowtie": bowtie.md
     - "Bowtie2": bowtie2.md
     - "BUSCO": busco.md
