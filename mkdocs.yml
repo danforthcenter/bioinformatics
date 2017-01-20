@@ -27,6 +27,7 @@ pages:
     - "Kallisto": kallisto.md
     - "NCBI BLAST+": blast.md
     - "Salmon": salmon.md
+    - "SPAdes": spades.md
     - "SRA-Tools": sratools.md
     - "Trinity": trinity.md
     - "UCSC Tools": kent.md
