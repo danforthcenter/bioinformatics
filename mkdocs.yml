@@ -31,6 +31,7 @@ pages:
     - "SRA-Tools": sratools.md
     - "Trinity": trinity.md
     - "UCSC Tools": kent.md
+    - "VarScan": varscan.md
 
 markdown_extensions:
   - toc:
