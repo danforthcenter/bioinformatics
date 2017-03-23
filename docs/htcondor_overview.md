@@ -14,6 +14,10 @@ documentation is extensive, read more
 * **Central manager server**. This server is the central brain of HTCondor. It is the interface between job scheduling machines and job execution machines. Users do not interact with this server (`basestar` in our case) directly.
 * **Scheduler server**. This server submits jobs to the HTCondor system. Multiple servers can run the job scheduling service. Currently the Danforth Center infrastructure runs the scheduler on `six`.
 * **Execution server**. These are the servers where jobs are run. Jobs submitted from apollo are analyzed by the central manager (`basestar`) to determine which execution servers can support the job (based on resource requests), whether or not resources are free currently, and what the job priority (rank in the queue) is.
+
+![Infrastructure](images/bioinfo_core_diagram-01.png)
+
+
 * **Job priority**. HTCondor uses a fair share model to assign jobs a priority. This means jobs are executed in an order that preserves resource allocation shares as much as possible (as opposed to a first-come, first-serve model).
 * **Slots**. HTCondor matches jobs to resource "slots." For the Bioinformatics cluster, each server is configured as a single resources slot (all the CPUs and RAM in one slot). Each slot is configured to be partitionable, so a job requesting less than 100% of all the resources in a slot will cause the slot to be divided so that the remaining resources can be matched to another job.
 * **Universe**. HTCondor provides different "universes" for executing jobs. Each universe has different properties. For now we will primarily use the vanilla universe, although the parallel universe will probably also be useful.
