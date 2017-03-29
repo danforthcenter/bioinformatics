@@ -164,7 +164,7 @@ Number of users: 1                 ByQuota                             0        
 
 `condor_userprio` shows a limited amount of history by default. 
 If you want to summarize your user and group usage over a longer 
-period, use `condor_userprio -usage -activefrom <month> <day> <year>`.
+period, use `condor_userprio -allusers`.
 
 
 ## Optimizing resource usage and job performance
