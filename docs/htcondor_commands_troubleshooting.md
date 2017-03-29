@@ -1,4 +1,4 @@
-# HTCondor - Useful commands & troubleshooting
+#HTCondor - Useful commands & troubleshooting
 
 ##Getting Help
 
@@ -237,11 +237,3 @@ example where requests with 8 CPUs do not have 2x improved performance over 4 CP
 	even if they take a bit longer each, resulting in the batch of jobs being done sooner for 
 	you to continue your analyses.
 	- [Intel White Paper for GATK Pipeline](http://www.intel.com/content/dam/www/public/us/en/documents/white-papers/deploying-gatk-best-practices-paper.pdf)
-
-
-
-
-	   
-
-
-

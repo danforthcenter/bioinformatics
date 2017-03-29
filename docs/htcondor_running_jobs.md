@@ -1,36 +1,30 @@
-# HTCondor - Running Jobs
+#HTCondor - Running Jobs
+
+## Accessing HTCondor
+
+**Currently all HTCondor transactions can be done from `six`.**
+
+
+
+For work that needs to be done outside of the queue
+(e.g. software development/debugging, small file operations, etc.),
+an interactive session can be requested (see below). Jobs that require 
+more than a few seconds or more than 1 CPU cannot be run on `Six`.
+
+![Interactive_vs_queue](images/bioinfo_core_jobs-02.png)
+
+
 
 ## Submitting jobs to HTCondor
 
 Instead of typing your command into the command line, you need to write
 a job description file to submit the job to HTCondor. The basic job
-description file is fairly simple. Imagine you want to run a simple job
-that will use a single CPU, your job description file would look
-something like this:
+description file is fairly simple.
 
-```
-####################
-#
-# Example Vanilla Universe Job
-# Simple HTCondor submit description file
-#
-####################
+###Anatomy of a simple HTCondor Job File
 
-universe         = vanilla
-getenv           = true
-executable       = /shares/bioinfo/bin/samtools
-arguments        = view -b -o alignment.bam alignment.sam
-log              = sam2bam.log
-output           = sam2bam.out
-error            = sam2bam.error
-request_memory   = 10G
+![Simple_jobfile](images/bioinfo_core_condorjob_anatomy-03.png)
 
-##  Do not edit  ##
-accounting_group = $ENV(CONDOR_GROUP)
-###################
-
-queue
-```
 
 Universe sets which universe to execute your job in, default is vanilla.
 Executable is the full path to the program you want to run. Getenv
@@ -47,9 +41,12 @@ keyword for HTCondor that tells it to submit the code above to the
 queue. This example job will request the default slot size (1 CPU, 4 MB
 RAM, 3 KB disk space).
 
-To submit your job to the queue:
+
+#####To submit this job to the queue:
 
 `condor_submit jobfile`
+
+###Requesting Multiple CPUs or Other Resrouces
 
 If you need to submit a job that uses multiple CPUs or other significant
 resources, add these requests to the job description file. In the
@@ -66,24 +63,25 @@ memory and disk request sizes.
 
 universe         = vanilla
 getenv           = true
-executable       = /shares/bioinfo/bin/bowtie2
-arguments        = -f --no-unal --threads 30 -x reference.fasta -U reads.fasta -S alignment.sam
+accounting_group = $ENV(CONDOR_GROUP)
+request_cpus     = 30
+
 log              = bowtie2.alignment.log
 output           = bowtie2.alignment.out
 error            = bowtie2.alignment.error
-request_cpus     = 30
-request_memory   = 10G
 
-##  Do not edit  ##
-accounting_group = $ENV(CONDOR_GROUP)
-###################
+executable       = /shares/bioinfo/bin/bowtie2
+arguments        = -f --no-unal --threads 30 -x reference.fasta -U reads.fasta -S alignment.sam
 
 queue
 ```
 
-Besides the job information, the only difference here is that we have
-requested a 30 CPU slot for this job. Note that it is important the the
-request_cpus value matches any CPU request options in the submitted job.
+* Besides the job information, the only difference here is that we have
+requested a **30 CPU** slot for this job. Note that it is important the the
+request_cpus value matches any CPU request options in the submitted job 
+(for example the `--threads` option in bowtie2).
+
+
 After the job starts and the HTCondor monitoring system refreshes we can
 now see this activity with `condor_status`:
 
@@ -100,7 +98,7 @@ slot1@pegasus.ddps LINUX      X86_64 Unclaimed Idle      0.000 257769  0+00:14:5
                Total        3     0       1         2       0          0
 ```
 
-Note that a partition, slot1_1 was split from slot1 (aerilon) and that
+* Note that a partition, slot1_1 was split from slot1 (aerilon) and that
 the load average (~26) is approximately equal to the 30 CPUs we
 requested. This job took ~11 minutes (wall time) and checked out 30
 CPUs, so 11 * 30 / 60 = 5.5 CPU hours. Viewed with
@@ -146,8 +144,10 @@ will terminate any running jobs, including `screen` and `tmux` sessions.
 condor_submit -interactive accounting_group=$CONDOR_GROUP getenv=true request_cpus=1 request_memory=1G
 ```
 
-The CPU and memory (RAM) can be adjusted accordingly. Furthermore, any
-additional HTCondor job parameters can be supplied to the command.
+
+* CPU and memory (RAM) can be requested* Condor creates a mini-machine on one of the executable servers for your use* Fees accrued regardless of usage once the session has started (since these resources are checked out and are unavailable to the queue)
+
+
 
 ## Job control
 
@@ -161,7 +161,7 @@ ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 ```
 
-Then remove the job:
+#####Then remove the job:
 
 `condor_rm 30`
 
@@ -169,16 +169,22 @@ This will remove all jobs under the ID 30, including jobs submitted from
 the same job file (e.g. 30.0, 30.1, etc.). If you need to remove a
 specific job, use the float value instead.
 
-Or remove all jobs associated with your username:
+#####Or remove all jobs associated with your username:
 
 `condor_rm <username>`
 
 ## Running a condor job that uses the scratch space
 
-This can be useful for IO-constrained jobs or jobs that behave poorly on
-NFS (e.g. HISAT2). Because the Danforth Center system uses NFS, transfer
-of files is not done by default. To active the transfer of input files,
-output files, or both, additional job file configuration is needed:
+Since the Danforth Center system uses NFS, transfer
+of files is not done by default. File transfer can be useful for 
+IO-constrained jobs or jobs that behave poorly on
+NFS (e.g. HISAT2). Below are some examples of programs and
+actions that benefit from using scratch space.
+
+![Using_scratch](images/bioinfo_core_scratch-02.png)
+
+To active the transfer of input files, output files, or both, 
+additional job file configuration is needed:
 
 ```
 ####################
@@ -216,6 +222,14 @@ queue
 
 The example below will run four cufflinks jobs, substituting the value
 of `group` in every time `queue` is called.
+
+- When running a batch of jobs from a single job file, if `notification = Complete` is set within
+the job file, then you will receive an email after each individual job is completed. Not a problem
+if a handful of jobs are being run, but if you are launching 100s-1000+ jobs, then neither your email 
+nor the system is going to like that many emails. One approach is create a DAGman wrapper and submit 
+the condor job file via `condor_submit_dag` with the command line argument `-notification complete` included. 
+Then Condor will only email you once the entire suite of jobs have been completed. See below for more details
+on DAG.
 
 ```
 ####################
@@ -262,3 +276,91 @@ universe jobs have a special configuration setting
 `jar_files = <path to jar file>/name.jar`. You must also keep the
 `executable = <path to executable>` option set, because it is required,
 but it is not used by java universe jobs. 
+
+## Running a sequential set of jobs: DAGman
+
+#####Two ways to run a multiple-step pipeline: 
+
+1. Using a shell script
+2. Using a DAG: a directed acyclic graph (“DAG”) - details: <http://research.cs.wisc.edu/htcondor/manual/latest/2_10DAGMan_Applications.html>
+
+![Simple_DAGman](images/bioinfo_core_simpleDAG-03.png)
+
+###Advantages of DAGman Workflow over a Shell Script
+
+-  Coordinates multiple jobs in serial **and** in parallel
+
+-  Specifically request resources [CPUs; scratch diskspace; RAM] on a **per-job-basis**
+	-  More cost-effective than just checking out i.e. 40 CPUs because one step of a pipeline uses 40 while the remainder use 1
+
+- Error and log reporting for each job --> easier for troubleshooting
+
+- Using a DAGman config file + 1 condor job file template avoids clutter
+
+###Basic format of DAG file
+
+The DAG input file has a basic set of commands: 
+
+- JOB: specifies an HTCondor job
+	- Syntax: `JOB JobName SubmitDescriptionFileName [DIR directory] [NOOP] [DONE]`
+- PARENT CHILD: specifies the dependencies within the DAG
+	- Syntax: `PARENT ParentJobName... CHILD ChildJobName...`
+
+**Example DAG Input File**
+
+![Example of a DAG Input file](images/dagman_jobfile.png)
+
+###DAG Submission
+
+A DAG is submitted to the queue using `condor_submit_dag DAG_InputFilename`
+
+- Note: Notifications are set by default to NONE; to be notified that 
+a DAG has completed, add the flag `-notification complete` to the `condor_submit_dag` command
+
+
+###DAG Wrapper for Batch Condor Job File
+When submitting a HTCondor job file to the queue that contains 100s+ jobs, if you wish to have 
+an email notification once all jobs are complete, a simple approach is adding a DAG wrapper around
+the job file - with no changes needed to the job file itself.
+
+#####Example DAG Wrapper File Contents:
+
+```
+
+JOB  perl1 condor.jobs.perl.sh  
+
+
+```
+
+#####Example condor.jobs.perl.sh Contents:
+
+```
+universe                 = vanilla
+getenv                   = true
+
+accounting_group         = $ENV(CONDOR_GROUP)
+condor_output            = outputs_condor/
+
+request_cpus             = 1
+run_type                 = perl
+
+ID                       = $(Cluster).$(Process)
+output                   = $(condor_output)$(run_type).$(ID).out
+error                    = $(condor_output)$(run_type).$(ID).err
+log                      = $(condor_output)$(run_type).$(ID).log
+
+executable               = script.pl
+arguments                = -i $(filename).fastq -o $(filename).fasta
+
+filename                 = WT_1
+queue
+
+filename                 = WT_2
+queue
+
+filename                 = WT_3
+queue
+```
+
+DAG will launch the three jobs. By running `condor_submit_dag -notification complete dag.sh`
+DAG will launch the 3 jobs within the job file and send an email once all three have completed.

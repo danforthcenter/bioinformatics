@@ -12,8 +12,8 @@ pages:
   - "Data sharing with Globus": globus.md
   - "HTCondor user's guide":
     - "Overview": htcondor_overview.md
-    - "Getting started": htcondor_getting_started.md
     - "Running jobs": htcondor_running_jobs.md
+    - "Other commands & troubleshooting": htcondor_commands_troubleshooting.md
   - "Bioinformatics software":
     - "ALLPATHS-LG": allpaths.md
     - "Aspera-Connect": aspera.md
