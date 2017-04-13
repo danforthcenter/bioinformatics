@@ -8,6 +8,7 @@ copyright: Copyright 2016, Donald Danforth Plant Science Center
 pages:
 - Home: index.md
 - Documentation:
+  - "Getting started": gettingstarted.md
   - "Cluster overview": cluster_overview.md
   - "Data sharing with Globus": globus.md
   - "HTCondor user's guide":
