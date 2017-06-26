@@ -33,6 +33,7 @@ pages:
     - "SHORE": shore.md
     - "SPAdes": spades.md
     - "SRA-Tools": sratools.md
+    - "Supernova": supernova.md
     - "Trinity": trinity.md
     - "UCSC Tools": kent.md
     - "Variation Graph": vg.md
