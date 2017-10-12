@@ -11,11 +11,11 @@ A detailed view of the current and historical Danforth Center Bioinformatics inf
 | basestar | 4    | 4        | 218          | HTCondor central manager                   |
 | aerilon  | 40   | 256      | 1024         | HTCondor job execution                     |
 | leda     | 12   | 32       | 838          | HTCondor job execution, NVIDIA Tesla K20X  |
-| pacifica | 40   | 1024     | 411          | HTCondor job execution                     |
+| pacifica | 40   | 1024     | 1024         | HTCondor job execution                     |
 | pallas   | 56   | 512      | 318          | HTCondor job execution                     |
 | pegasus  | 40   | 256      | 1024         | HTCondor job execution                     |
 | tauron   | 40   | 256      | 1024         | HTCondor job execution                     |
-| thanatos | 56   | 512      | 318          | HTCondor job execution                     |
+| thanatos | 56   | 512      | 1024         | HTCondor job execution                     |
 | scorpia  | 40   | 256      | 0            | HTCondor job execution                     |
 | chronos  | 4    | 4        | 0            | Cron scheduler, File transfers, Globus FTP |
 | jupyter  | 8    | 16       | 0            | Small interactive jobs, Jupyter notebook   |
