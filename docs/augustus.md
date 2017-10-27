@@ -2,14 +2,14 @@
 
 **About**: AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences.
 
-**Version**: 3.2.2
+**Version**: 3.3
 
 **Added**: 2016-11-03
 
-**Updated**: 2016-11-03
+**Updated**: 2017-10-27
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /shares/bioinfo/installs/augustus/bin
 
-**Source directory**: /shares/bioinfo/installs/augustus-3.2.2
+**Source directory**: /shares/bioinfo/installs/augustus
 
 **Link**: [Augustus](http://bioinf.uni-greifswald.de/augustus/)
