@@ -23,6 +23,7 @@ pages:
     - "BBTools": bbtools.md
     - "Bowtie": bowtie.md
     - "Bowtie2": bowtie2.md
+    - "BRAKER": braker.md
     - "BUSCO": busco.md
     - "CNVnator": cnvnator.md
     - "Gffread": gffread.md
