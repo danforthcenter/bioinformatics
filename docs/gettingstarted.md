@@ -1,5 +1,8 @@
 # Getting Started
 
+All users of the Danforth Center Bioinformatics infrastructure must first acknowledge that they have read and 
+understand the [Usage Policies](policies.md).
+
 ## Useful links
 
 Core facility website: [http://bioinformatics.danforthcenter.org/](http://bioinformatics.danforthcenter.org/)

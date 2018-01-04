@@ -9,6 +9,7 @@ pages:
 - Home: index.md
 - Documentation:
   - "Getting started": gettingstarted.md
+  - "Usage policies": policies.md
   - "Cluster overview": cluster_overview.md
   - "Data sharing with Globus": globus.md
   - "HTCondor user's guide":
@@ -43,3 +44,4 @@ pages:
 markdown_extensions:
   - toc:
       permalink: True
+  - sane_lists
