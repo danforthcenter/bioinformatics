@@ -2,11 +2,11 @@
 
 **About**: Short Read Archive data retrieval and format conversion tools.
 
-**Version**: 2.5.7
+**Version**: 2.8.2-5
 
 **Added**: 2016-01-19
 
-**Updated**: 2016-01-19
+**Updated**: 2018-01-08
 
 **Installation directory**: /shares/bioinfo/bin
 
