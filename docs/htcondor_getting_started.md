@@ -5,7 +5,7 @@
 - The documentation for HTCondor is extensive. Many answers to 
 general questions can be easily found by including `HTCondor` 
 to your search.
-- The Danforth Center Bioinformatics Core has a Slack Channel <https://ddpsc-bioinfo.slack.com/>
+- The Danforth Center Bioinformatics Core has a Slack Channel <https://danforthcenter.slack.com/>
 	- A (free) account is required to join
 	- This is an excellent, in-house resource for asking questions from other scientists doing bioinformatics.
 
@@ -13,7 +13,9 @@ to your search.
 
 ### View the current status of the Bioinformatics cluster
 
-`condor_status`
+```bash
+condor_status
+```
 
 In the example output below we can see that there are five servers currently configured to run jobs. Servers that are completely idle appear as one slot. Servers running one or more jobs will show up as divided into multiple slots, one per job and the remaining idle resources.
 
@@ -46,35 +48,51 @@ slot1@thanatos.ddp LINUX      X86_64 Unclaimed Idle      2.000 499558  6+20:46:2
 
 ### Status of the HTCondor queue
 
-`condor_q`
+To see only your own jobs:
+
+```bash
+condor_q
+```
+To see all running jobs:
+
+```bash
+condor_q -all
+```
 
 In the example below one job is in the queue and is running. The ST column lists the state of each job: I = Idle, R = Running, X = Removed, > = Transferring input files, < = Transferring output files.
 
 ```
 -- Schedd: six.ddpsc.org : <10.5.1.63:15151?...
 ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
-30.0   nfahlgren       3/3  22:43   0+00:00:02 R  0   3.2  samtools view -b -
+30.0   username       3/3  22:43   0+00:00:02 R  0   3.2  samtools view -b -
 
 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 ```
 
-`condor_fullstat`
-
-Provides a table of compiled data for jobs currently running from `condor_q` and `condor_status`. Especially useful for monitoring job usage vs requests.
-
-```
-   ID  Owner          Host                  CPUs    CPUs (%)    Memory (GB)    Memory (%)    Disk (GB)    Disk (%)  Run Time     Cmd
------  -------------  ------------------  ------  ----------  -------------  ------------  -----------  ----------  -----------  -------------
-39768  clizarraga     pacifica.ddpsc.org       4         0.2            0             0              0         100  28:00:00:41  (interactive)
-40655  ebertolini     scorpia.ddpsc.org       40         2.5            2.9           2.9            0         100  19:04:45:43  lncrna.sh
-40706  abasaro        tauron.ddpsc.org         1       106             11.9          79.5            0         100  15:19:22:04  varscan
-41814  ebertolini     pallas.ddpsc.org        20         0              0             0              0         100  00:05:38:37  (interactive)
-41834  abasaro        pacifica.ddpsc.org      10        10              0             0              0         100  00:03:09:26  (interactive)
-41853  rparvathaneni  pacifica.ddpsc.org       5        20              0             0              0         100  00:00:06:20  awk.sh
+```bash
+condor_fullstat
 ```
 
+Provides a table of compiled data for jobs currently running from `condor_q` and `condor_status`. 
+It is especially useful for monitoring job usage vs requests. CPU, Memory, and Disk is reported as current usage/requested.
 
-
+```
+  Cluster    Process  Owner       Host               CPUs    Memory (GB)    Disk (GB)    Run Time     Cmd
+---------  ---------  ----------  -----------------  ------  -------------  -----------  -----------  ----------------------
+   118792          0  user1       leda.ddpsc.org     1/1     5/1            0/1          05:11:57:23  ddpsc_panicle_batch.sh
+   118957          0  user1       aerilon.ddpsc.org  1/2     17/50          0/1          00:12:41:35  freebayes
+   118981          0  user1       aerilon.ddpsc.org  0/8     0/1            0/1          00:12:08:00  (interactive)
+   119037          0  user2       aerilon.ddpsc.org  8/8     2/16           0/1          00:08:30:35  Sorghum_Bo_2018.sh
+   119040          0  user2       pegasus.ddpsc.org  7/6     41/5           72/7         00:08:14:53  Trinity
+   119045          0  user2       aerilon.ddpsc.org  8/8     3/16           0/1          00:06:56:50  Maize_Bo2015_2018.sh
+   119048          0  user3       aerilon.ddpsc.org  1/6     21/5           24/7         00:06:28:02  Trinity
+   119054          0  user3       pegasus.ddpsc.org  9/8     7/1            0/1          00:06:07:55  (interactive)
+   119070          0  user3       aerilon.ddpsc.org  4/6     3/5            7/7          00:01:33:38  Trinity
+   119077          0  user3       pegasus.ddpsc.org  4/6     7/35           2/30         00:00:41:45  Trinity
+   119080          0  user3       scorpia.ddpsc.org  37/40   0/10           0/1          00:00:04:49  plantcv-pipeline.py
+---------  ---------  ----------  -----------------  ------  -------------  -----------  -----------  ----------------------
+CPU, memory, and disk resources are shown as actual usage over requested resources.
+```
 
 ### Analyzing jobs that are on Hold or Idle
 
@@ -147,7 +165,9 @@ Suggestions:
 
 ### HTCondor system usage by group/user
 
-`condor_userprio`
+```bash
+condor_userprio -allusers
+```
 
 In the example below, user nfahlgren from group jcarrington has used 0.02 CPU hours of computing time.
 
@@ -157,15 +177,10 @@ Group                     Config     Use    Effective   Priority   Res   Total U
   User Name                Quota   Surplus   Priority    Factor   In Use (wghted-hrs) Last Usage Resources
 ------------------------ --------- ------- ------------ --------- ------ ------------ ---------- ----------
 group_jcarrington             0.30 ByQuota                1000.00      0         0.02      <now>          1
-  nfahlgren@ddpsc.org                            500.24   1000.00      0         0.02      <now>
+  username@ddpsc.org                             500.24   1000.00      0         0.02      <now>
 ------------------------ --------- ------- ------------ --------- ------ ------------ ---------- ----------
 Number of users: 1                 ByQuota                             0         0.02    1+00:00
 ```
-
-`condor_userprio` shows a limited amount of history by default. 
-If you want to summarize your user and group usage over a longer 
-period, use `condor_userprio -usage -activefrom <month> <day> <year>`.
-
 
 ## Optimizing resource usage and job performance
 
@@ -218,9 +233,9 @@ the course of a job's run, with the user monitoring the actual percentage of CPU
 For example:
 
 ```
-   ID  Owner       Host                  CPUs    CPUs (%)    Memory (GB)    Memory (%)    Disk (GB)    Disk (%)  Run Time     Cmd
------  ----------  ------------------  ------  ----------  -------------  ------------  -----------  ----------  -----------  ---------
-40655  xxxxxxxxxx  scorpia.ddpsc.org       40       2.5            2.9           2.9              0         100  19:21:28:54  job.sh
+  Cluster    Process  Owner       Host               CPUs    Memory (GB)    Disk (GB)    Run Time     Cmd
+---------  ---------  ----------  -----------------  ------  -------------  -----------  -----------  ---------
+   40655           0  xxxxx       leda.ddpsc.org     1/40    1/1            0/1          19:21:28:54  job.sh
 ```
 
 - `Job_40655` has requested 40 CPUs, and has been running for >19 days. 

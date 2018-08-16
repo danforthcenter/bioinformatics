@@ -36,15 +36,19 @@ option instead. Arguments are all the remaining options you would
 normally put on the command line after the executable. Log, output and
 error are the names (if desired) of an HTCondor log file and the job
 standard output and error. Accounting group is a code to keep track of
-your cluster usage based on your group (lab) membership. Queue is a
-keyword for HTCondor that tells it to submit the code above to the
+your cluster usage based on your group (lab) membership. Accounting
+group is automatically applied for your default group. If you need to
+do work for another group you can manually override your default group.
+Queue is a keyword for HTCondor that tells it to submit the code above to the
 queue. This example job will request the default slot size (1 CPU, 4 MB
 RAM, 3 KB disk space).
 
 
 #####To submit this job to the queue:
 
-`condor_submit jobfile`
+```bash
+condor_submit jobfile
+```
 
 ###Requesting Multiple CPUs or Other Resrouces
 
@@ -63,7 +67,6 @@ memory and disk request sizes.
 
 universe         = vanilla
 getenv           = true
-accounting_group = $ENV(CONDOR_GROUP)
 request_cpus     = 30
 
 log              = bowtie2.alignment.log
@@ -140,18 +143,27 @@ are similar to logging into a server with ssh except that they will
 automatically log out after 2 hours of inactivity and once disconnected
 will terminate any running jobs, including `screen` and `tmux` sessions.
 
+A simple interactive session with 1 CPU and 1 GB of RAM can be requested simply with:
+
+```bash
+condor_submit -interactive
 ```
-condor_submit -interactive accounting_group=$CONDOR_GROUP getenv=true request_cpus=1 request_memory=1G
+
+If you need additional resources you can add job configuration key-value pairs
+```bash
+condor_submit -interactive request_cpus=10 request_memory=10G
 ```
 
 
-* CPU and memory (RAM) can be requested* Condor creates a mini-machine on one of the executable servers for your use* Fees accrued regardless of usage once the session has started (since these resources are checked out and are unavailable to the queue)
+* CPU and memory (RAM) can be requested
+* Condor creates a mini-machine on one of the executable servers for your use
+* Fees accrued regardless of usage once the session has started (since these resources are checked out and are unavailable to the queue)
 
 
 
 ## Job control
 
-If you need to remove a job from the queue, find the job ID with condor_q:
+If you need to remove a job from the queue, find the job ID with `condor_q`:
 
 ```
 -- Schedd: six.ddpsc.org : <10.5.1.63:15151?...
@@ -163,7 +175,9 @@ ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
 
 #####Then remove the job:
 
-`condor_rm 30`
+```bash
+condor_rm 30
+```
 
 This will remove all jobs under the ID 30, including jobs submitted from
 the same job file (e.g. 30.0, 30.1, etc.). If you need to remove a
@@ -171,7 +185,9 @@ specific job, use the float value instead.
 
 #####Or remove all jobs associated with your username:
 
-`condor_rm <username>`
+```bash
+condor_rm username
+```
 
 ## Running a condor job that uses the scratch space
 
@@ -211,8 +227,6 @@ transfer_input_files = <path to singleEnd.fastq if not in current dir>
 # HTCondor will copy any input files listed here (comma-separated)
 # HTCondor will transfer all output files since none are listed specifically
 
-##  Do not edit  ##
-accounting_group = $ENV(CONDOR_GROUP)
 ###################
 
 queue
@@ -251,8 +265,6 @@ error            = $(group).cufflinks.error
 request_cpus     = 15
 request_memory   = 10G
 
-##  Do not edit  ##
-accounting_group = $ENV(CONDOR_GROUP)
 ###################
 
 group = controls_1
@@ -338,7 +350,6 @@ JOB  perl1 condor.jobs.perl.sh
 universe                 = vanilla
 getenv                   = true
 
-accounting_group         = $ENV(CONDOR_GROUP)
 condor_output            = outputs_condor/
 
 request_cpus             = 1
