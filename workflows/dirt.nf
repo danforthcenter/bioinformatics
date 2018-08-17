@@ -39,11 +39,12 @@ outdir.mkdirs()
 
 process dirt {
     input:
-    file image from input_files
+    each image from input_files
 
     output:
     file "output.csv" into results
 
+    script:
     "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${params.outdir} ${params.traits}"
 }
 
