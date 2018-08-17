@@ -37,20 +37,24 @@ input_files = Channel.fromPath(params.images, type: 'file')
 outdir = file(params.outdir)
 outdir.mkdirs()
 
-process create_output_dirs {
-    input:
-    file image from input_files
-
-    script:
-    sample_outdir = file(params.outdir + "/" + image.name)
-    sample_outdir.mkdirs()
-}
+//process create_output_dirs {
+//    input:
+//    file image from input_files
+//
+//    output:
+//    each sample_outdir into directories
+//
+//    script:
+//    sample_outdir = file(params.outdir + "/" + image.name)
+//    sample_outdir.mkdirs()
+//}
 
 process dirt {
     input:
     each image from input_files
 
     script:
-    output_dir = params.outdir + "/" + image.name
+    name = file(image).name
+    output_dir = params.outdir + "/" + name
     "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${output_dir} ${params.traits}"
 }
