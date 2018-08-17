@@ -41,5 +41,10 @@ process dirt {
     input:
     file image from input_files
 
+    output:
+    file "output.csv" into results
+
     "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${params.outdir} ${params.traits}"
 }
+
+results.subscribe{ println(${it.name}) }
