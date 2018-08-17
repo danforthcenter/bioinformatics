@@ -37,15 +37,22 @@ input_files = Channel.fromPath(params.images, type: 'file')
 outdir = file(params.outdir)
 outdir.mkdirs()
 
+process create_output_dirs {
+    input:
+    file image from input_files
+
+    script:
+    sample_outdir = file(params.outdir + "/" + image.name)
+    sample_outdir.mkdirs()
+}
+
 process dirt {
     input:
     each image from input_files
 
-    output:
-    file "output.csv" into results
-
     script:
-    "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${params.outdir} ${params.traits}"
+    output_dir = params.outdir + "/" + image.name
+    "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${output_dir} ${params.traits}"
 }
 
 results.subscribe{ println(${it.name}) }
