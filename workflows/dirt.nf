@@ -54,5 +54,3 @@ process dirt {
     output_dir = params.outdir + "/" + image.name
     "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${output_dir} ${params.traits}"
 }
-
-results.subscribe{ println(${it.name}) }
