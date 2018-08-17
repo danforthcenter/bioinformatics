@@ -31,7 +31,7 @@ if (params.help) exit 1
 
 // The --images parameter is used to find input images
 input_files = Channel.fromPath(params.images, type: 'file')
-                     .ifEmpty {error "No image files found."}.println()
+                     .ifEmpty {error "No image files found."}
 
 // Create the output directory
 outdir = file(params.outdir)
