@@ -37,6 +37,8 @@ outdir = file(params.outdir)
 outdir.mkdirs()
 
 process dirt {
+    validExitStatus = 0,1,2,143
+
     input:
     each image from input_files
 
