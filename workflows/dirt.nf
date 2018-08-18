@@ -37,11 +37,11 @@ outdir = file(params.outdir)
 outdir.mkdirs()
 
 process dirt {
+    validExitStatus 0,1,2
+    
     input:
     each image from input_files
 
-    maxErrors 9999
-    
     script:
     name = file(image).name
     output_dir = params.outdir + "/" + name
