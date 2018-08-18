@@ -37,6 +37,8 @@ outdir = file(params.outdir)
 outdir.mkdirs()
 
 process dirt {
+    maxErrors 9999
+
     input:
     each image from input_files
 
