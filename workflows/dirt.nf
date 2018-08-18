@@ -12,6 +12,7 @@ params.stem = 0
 params.plot = 0
 params.outfmt = 0
 params.traits = "/opt/DIRT/traits.csv"
+params.executor = 'condor'
 params.help = false
 
 log.info("Bioinformatics DIRT workflow")
@@ -26,6 +27,7 @@ log.info("--stem            Stem reconstruction is on, 0 - stem reconstruction i
 log.info("--plot            Plotting data is on, 0 - plotting data is not stored (default: 0)")
 log.info("--outfmt          Output format. The full trait set is put into one excel file containing empty cells for traits that were not computed, 0 - only computed files are written to the output file (default: 0)")
 log.info("--traits          Full path to .csv file containing the traits to be computed (default: ${params.traits})")
+log.info("--executor        Workflow execution system. See nextflow.io for more details (default: ${params.executor})")
 log.info("--help            Print this menu and exit.")
 if (params.help) exit 1
 
@@ -38,6 +40,8 @@ outdir = file(params.outdir)
 outdir.mkdirs()
 
 process dirt {
+    executor = params.executor
+
     input:
     each image from input_files
 
