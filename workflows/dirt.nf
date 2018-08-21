@@ -81,8 +81,7 @@ process dirt {
     dir.mkdirs()
     "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${output_dir} ${params.traits}"
 
-    afterScript:
-    """
+    afterScript """
     #!/bin/bash
     
     # Copy the Crown images if they exist
