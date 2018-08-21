@@ -71,16 +71,6 @@ if (params.stem == 1) {
 
 // Process: DIRT - runs DIRT in a singularity container
 process dirt {
-    input:
-    each image from input_files
-
-    script:
-    name = file(image).name
-    output_dir = params.tmpdir + "/" + name
-    dir = file(output_dir)
-    dir.mkdirs()
-    "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${output_dir} ${params.traits}"
-
     afterScript """
     #!/bin/bash
     
@@ -96,8 +86,8 @@ process dirt {
     # Copy the Lateral images if they exist
     if [ -d ${lateral_dir} ]; then
         for d in ${params.tmpdir}/* ; do
-            for i in `find \\$d/1/Lateral -maxdepth 1 -name *.png` ; do
-                cp \\${i} ${lateral_dir}
+            for i in `find \$d/1/Lateral -maxdepth 1 -name *.png` ; do
+                cp \${i} ${lateral_dir}
             done
         done
     fi
@@ -105,8 +95,8 @@ process dirt {
     # Copy the Skeleton images if they exist
     if [ -d ${skel_dir} ]; then
         for d in ${params.tmpdir}/* ; do
-            for i in `find \\$d/1/Crown/Skeleton -maxdepth 1 -name *.png` ; do
-                cp \\${i} ${skel_dir}
+            for i in `find \$d/1/Crown/Skeleton -maxdepth 1 -name *.png` ; do
+                cp \${i} ${skel_dir}
             done
         done
     fi
@@ -114,4 +104,14 @@ process dirt {
     # Concatenate all the trait outputs
     awk 'FNR==1 && NR!=1 {while (/^Image/) getline;} 1 {print}' ${params.tmpdir}/*/1/output.csv >> ${params.outdir}/outputAll.csv
     """
+
+    input:
+    each image from input_files
+
+    script:
+    name = file(image).name
+    output_dir = params.tmpdir + "/" + name
+    dir = file(output_dir)
+    dir.mkdirs()
+    "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${output_dir} ${params.traits}"
 }
