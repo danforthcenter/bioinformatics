@@ -34,11 +34,13 @@ input_files = Channel.fromPath(params.images)
 
 // Create the output directory
 outdir = file(params.outdir)
+if (outdir.exists()) {
+    println("Error: the output directory ${params.outdir} already exists!")
+    exit 1
+}
 outdir.mkdirs()
 
 process dirt {
-//    validExitStatus 0,1,2,143
-
     input:
     each image from input_files
 
@@ -48,4 +50,15 @@ process dirt {
     dir = file(output_dir)
     dir.mkdirs()
     "/shares/bioinfo/bin/dirt $image 1 ${params.threshold} ${params.excised} ${params.crown} ${params.segmentation} ${params.marker} ${params.stem} ${params.plot} ${params.outfmt} ${output_dir} ${params.traits}"
+
+//    afterScript:
+//    """
+//    #!/bin/bash
+//    for d in ${params.outdir}/* ; do
+//        for i in `find \$d/Crown -maxdepth 1 -name *jpg.png` ; do
+//            topdir=`pwd`
+//            cp ${i} $topdir/AllCrowns/
+//        done
+//    done
+    """
 }
