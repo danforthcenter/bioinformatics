@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 // Command-line arguments
-params.images = './*.jpg'
+params.images = ''
 params.outdir = './dirt_output'
 params.threshold = 1.0
 params.marker = 0.0
@@ -12,10 +12,11 @@ params.stem = 0
 params.plot = 0
 params.outfmt = 0
 params.traits = '/opt/DIRT/traits.csv'
+params.tmpdir = ''
 params.help = false
 
 log.info("Bioinformatics DIRT workflow")
-log.info("--images          Input images. Has to be in the form of './*.jpg'. Must be in quotes (default: './*.jpg')")
+log.info("--images          Input images. Has to be in the form of '/home/username/*.jpg'. Must be in quotes. Required")
 log.info("--outdir          Output directory (default: ./dirt_output)")
 log.info("--threshold       Multiplier for the automatically determined mask threshold. 1.0 works fine and is default. If flashlight is used, the 0.6 is a good choice (default: 1.0)")
 log.info("--marker          Marker diameter. A simple decimal e.g. 25.4. If 0.0 is used, then the output will have pixels as unit (default: 0.0)")
@@ -30,7 +31,10 @@ log.info("--help            Print this menu and exit.")
 if (params.help) exit 1
 
 // The --images parameter is used to find input images
-input_files = Channel.fromPath(params.images)
+input_files = Channel.fromPath(params.images).ifEmpty{
+    println("Error: no input files found in ${params.images}!")
+    exit 1
+}
 
 // Create the output directory
 outdir = file(params.outdir)
