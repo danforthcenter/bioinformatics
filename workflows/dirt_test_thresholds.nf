@@ -36,6 +36,6 @@ process dirt_threshold_tester {
 
     script:
     """
-    bash thresholdTester.sh
+    dirt_threshold --image ${image} --thresholds ${params.thresholds}
     """
 }
