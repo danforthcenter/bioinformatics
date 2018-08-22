@@ -36,6 +36,6 @@ process dirt_threshold_tester {
 
     script:
     """
-    python thresholdTester.py
+    bash thresholdTester.sh
     """
 }
