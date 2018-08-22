@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import sys
+sys.path.append("/opt/DIRT")
 import os
 import scipy
 import argparse
