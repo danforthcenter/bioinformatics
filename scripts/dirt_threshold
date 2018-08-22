@@ -3,6 +3,7 @@
 old_DISPLAY=$DISPLAY
 export DISPLAY=:0
 
-/usr/local/bin/singularity exec /shares/bioinfo/singularity/Computational-Plant-Science-DIRT-master-latest.simg /bin/bash -c "cd /opt/DIRT; python /shares/bioinfo/installs/bioinformatics/scripts/dirt_apply_threshold.py $@"
+args=$@
+/usr/local/bin/singularity exec /shares/bioinfo/singularity/Computational-Plant-Science-DIRT-master-latest.simg /bin/bash -c "cd /opt/DIRT; python /shares/bioinfo/installs/bioinformatics/scripts/dirt_apply_threshold.py ${args}"
 
 export DISPLAY=$old_DISPLAY
