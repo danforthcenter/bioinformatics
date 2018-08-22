@@ -29,7 +29,7 @@ outdir.mkdirs()
 process dirt_threshold_tester {
     publishDir params.outdir
     input:
-    file image from input_files
+    each image from input_files
 
     output:
     file '*.png'
