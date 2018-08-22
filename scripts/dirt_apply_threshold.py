@@ -10,8 +10,7 @@ from fixImageOrientation import fix_orientation
 
 
 def options():
-	parser = argparse.ArgumentParser(description='Test a range of thresholds on an image using DIRT.',
-                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+	parser = argparse.ArgumentParser(description='Test a range of thresholds on an image using DIRT.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-i", "--image", help="Input image.", required=True)
     parser.add_argument("-t", "--thresholds", help="Comma-separated list of threshold multiplier values.", default="1,5,10,15,20")
     args = parser.parse_args()
