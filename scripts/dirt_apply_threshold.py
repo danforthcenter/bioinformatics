@@ -6,7 +6,7 @@ import os
 import scipy
 import argparse
 from dirtIO import IO
-from Preprocessing import Preprocessing
+import Preprocessing
 from fixImageOrientation import fix_orientation
 
 
@@ -23,7 +23,7 @@ def main():
     args = options()
     # IO processing
     io = IO()
-    prep = Preprocessing(io)
+    prep = Preprocessing.Preprocessing(io)
     # Parse thresholds
     thrTestValues = args.thresholds.split(",")
     # Open the image
