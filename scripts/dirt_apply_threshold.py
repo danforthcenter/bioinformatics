@@ -22,7 +22,7 @@ def options():
 def main():
     args = options()
     # IO processing
-    io = IO.IO()
+    io = IO()
     prep = Preprocessing.Preprocessing(io)
     # Parse thresholds
     thrTestValues = args.thresholds.split(",")
