@@ -27,7 +27,7 @@ outdir.mkdirs()
 
 // Process: dirt_threshold_tester
 process dirt_threshold_tester {
-    publishDir $params.outdir
+    publishDir params.outdir
     input:
     file image from input_files
 
