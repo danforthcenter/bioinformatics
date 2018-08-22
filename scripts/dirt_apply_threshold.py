@@ -23,7 +23,7 @@ def main():
     args = options()
     # IO processing
     io = IO()
-    prep = Preprocessing.Preprocessing(io)
+    prep = Preprocessing(io)
     # Parse thresholds
     thrTestValues = args.thresholds.split(",")
     # Open the image
