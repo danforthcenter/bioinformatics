@@ -32,7 +32,7 @@ process dirt_threshold_tester {
     each image from input_files
 
     output:
-    file '*.png'
+    file 'Crown/*.png'
 
     script:
     """

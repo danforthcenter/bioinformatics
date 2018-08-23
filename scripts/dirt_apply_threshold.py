@@ -23,7 +23,19 @@ def main():
     args = options()
     # IO processing
     io = IO()
-    prep = Preprocessing(io)
+    # Set working paths to job directory
+    io.setHomePath(os.getcwd())
+    io.setServerPath(os.getcwd())
+    # We have to make some directories to store DIRT outputs
+    if not os.path.exists('Mask'):
+        os.mkdir('Mask')
+    if not os.path.exists(os.path.join('Crown','Plots')):
+        os.makedirs(os.path.join('Crown','Plots'))
+    if not os.path.exists(os.path.join('Crown','Result')):
+        os.makedirs(os.path.join('Crown','Result'))
+    # Set filename
+    imgName = os.path.basename(args.image)
+
     # Parse thresholds
     thrTestValues = args.thresholds.split(",")
     # Open the image
@@ -33,11 +45,10 @@ def main():
     except:
         print('Image not readable')
     # Apply each threshold to the image
-    imgName = os.path.basename(args.image)
     for value in thrTestValues:
-        imgRoot = prep.prepocess(img, 1, scale=int(value), nrExRoot=1, marker=39.0, stemCorrection=1)
-        if len(imgRoot) > 0:
-            scipy.misc.imsave(imgName[:-4] + "_threshold_" + str(value) + ".png", imgRoot)
+        io.setFileName(imgName[:-4] + "_threshold_" + str(value))
+        prep = Preprocessing(io)
+        _ = prep.prepocess(img, 1, scale=int(value), nrExRoot=1, marker=39.0, stemCorrection=1)
 
 
 if __name__ == "__main__":
