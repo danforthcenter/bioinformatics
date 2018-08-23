@@ -6,7 +6,7 @@ import os
 import scipy
 import argparse
 from dirtIO import IO
-import Preprocessing
+from Preprocessing import Preprocessing
 from fixImageOrientation import fix_orientation
 
 
@@ -23,7 +23,7 @@ def main():
     args = options()
     # IO processing
     io = IO()
-    prep = Preprocessing.Preprocessing(io)
+    prep = Preprocessing(io)
     # Parse thresholds
     thrTestValues = args.thresholds.split(",")
     # Open the image
@@ -35,7 +35,7 @@ def main():
     # Apply each threshold to the image
     imgName = os.path.basename(args.image)
     for value in thrTestValues:
-        imgRoot = prep.preprocess(img, 1, scale=value, nrExRoot=1, marker=39.0, stemCorrection=1)
+        imgRoot = prep.prepocess(img, 1, scale=value, nrExRoot=1, marker=39.0, stemCorrection=1)
         if len(imgRoot) > 0:
             scipy.misc.imsave(imgName[:-4] + "_threshold_" + str(value) + ".png", imgRoot)
 
