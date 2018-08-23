@@ -47,21 +47,24 @@ The full list of options the workflow supports are:
 
 ```
 Bioinformatics DIRT workflow
---images          Input images. Has to be in the form of '/home/username/*.jpg'. Must be in quotes. Required
+--images          Input images. Has to be in the form of '/home/username/*.jpg'. Must be in quotes.
+                  Required
 --tmpdir          DIRT working directory (fully-qualified path, must not exist). Required
 --outdir          Collated output directory (fully-qualified path). Required
---threshold       Multiplier for the automatically determined mask threshold. 1.0 works fine and is default. If
-                  flashlight is used, the 0.6 is a good choice (default: 1.0)
---marker          Marker diameter. A simple decimal e.g. 25.4. If 0.0 is used, then the output will have pixels as
-                  unit (default: 0.0)
+--threshold       Multiplier for the automatically determined mask threshold. 1.0 works fine and is
+                  default. If flashlight is used, the 0.6 is a good choice (default: 1.0)
+--marker          Marker diameter. A simple decimal e.g. 25.4. If 0.0 is used, then the output will
+                  have pixels as unit (default: 0.0)
 --excised         Excised root analysis is on, 0 - excised root analysis is off (default: 1)
 --crown           Crown root analysis is on, 0 - crown root analysis is off (default: 1)
 --segmentation    Segmentation is on, 0 - segmentation is off (default: 1)
 --stem            Stem reconstruction is on, 0 - stem reconstruction is off (default: 0)
 --plot            Plotting data is on, 0 - plotting data is not stored (default: 0)
---outfmt          Output format. The full trait set is put into one excel file containing empty cells for traits that
-                  were not computed, 0 - only computed files are written to the output file (default: 0)
---traits          Full path to .csv file containing the traits to be computed (default: /opt/DIRT/traits.csv)
+--outfmt          Output format. The full trait set is put into one excel file containing empty cells
+                  for traits that were not computed, 0 - only computed files are written to the output
+                  file (default: 0)
+--traits          Full path to .csv file containing the traits to be computed
+                  (default: /opt/DIRT/traits.csv)
 --help            Print this menu and exit.
 ```
 
@@ -90,7 +93,8 @@ The full list of options the workflow supports are:
 
 ```
 Bioinformatics DIRT threshold-testing workflow
---images          Input images. Has to be in the form of '/home/username/*.jpg'. Must be in quotes. Required
+--images          Input images. Has to be in the form of '/home/username/*.jpg'. Must be in quotes.
+                  Required
 --outdir          Collated output directory (fully-qualified path). Required
 --thresholds      A comma-separated list of threshold multipliers to test (default: 1,5,10,15,20)
 --help            Print this menu and exit.
