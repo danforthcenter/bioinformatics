@@ -35,7 +35,7 @@ def main():
     # Apply each threshold to the image
     imgName = os.path.basename(args.image)
     for value in thrTestValues:
-        imgRoot = prep.prepocess(img, 1, scale=value, nrExRoot=1, marker=39.0, stemCorrection=1)
+        imgRoot = prep.prepocess(img, 1, scale=int(value), nrExRoot=1, marker=39.0, stemCorrection=1)
         if len(imgRoot) > 0:
             scipy.misc.imsave(imgName[:-4] + "_threshold_" + str(value) + ".png", imgRoot)
 
