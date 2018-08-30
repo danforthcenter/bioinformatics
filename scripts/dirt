@@ -3,6 +3,6 @@
 old_DISPLAY=$DISPLAY
 export DISPLAY=:0
 
-/usr/local/bin/singularity run /shares/bioinfo/singularity/Computational-Plant-Science-DIRT-master-latest.simg "$@"
+/usr/local/bin/singularity run /shares/bioinfo/singularity/dirt.simg "$@"
 
 export DISPLAY=$old_DISPLAY
