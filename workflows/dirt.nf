@@ -65,7 +65,7 @@ if (params.excised == 1) {
 // Create the AllSkeletons output directory
 skel_dir = params.outdir + "/AllSkeletons"
 skel = file(skel_dir)
-if (params.stem == 1) {
+if (params.crown == 1) {
     skel.mkdirs()
 }
 
