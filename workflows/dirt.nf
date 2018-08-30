@@ -102,7 +102,7 @@ process dirt {
     fi
 
     # Concatenate all the trait outputs
-    awk 'FNR==1 && NR!=1 {while (/^Image/) getline;} 1 {print}' ${params.tmpdir}/*/1/output.csv >> ${params.outdir}/outputAll.csv
+    awk 'FNR==1 && NR!=1 {while (/^Image/) getline;} 1 {print}' ${params.tmpdir}/*/1/output.csv > ${params.outdir}/outputAll.csv
     """
 
     input:
