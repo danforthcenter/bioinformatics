@@ -3,6 +3,6 @@
 old_DISPLAY=$DISPLAY
 export DISPLAY=:0
 
-/usr/local/bin/singularity run /shares/bioinfo/singularity/dirt.simg "$@"
+/usr/local/bin/singularity run /shares/bioinfo/singularity/dirt.img "$@"
 
 export DISPLAY=$old_DISPLAY
