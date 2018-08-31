@@ -71,6 +71,7 @@ if (params.crown == 1) {
 
 // Process: DIRT - runs DIRT in a singularity container
 process dirt {
+    validExitStatus 0,1,143
     afterScript """
     #!/bin/bash
     
