@@ -26,7 +26,6 @@
 universe                 = vanilla
 getenv                   = true
 
-accounting_group         = $ENV(CONDOR_GROUP)
 condor_output            = /path/to/condor/output/dir/
 
 request_cpus             = $(cpu_req)

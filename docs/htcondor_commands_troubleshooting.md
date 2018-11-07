@@ -5,7 +5,7 @@
 - The documentation for HTCondor is extensive. Many answers to 
 general questions can be easily found by including `HTCondor` 
 to your search.
-- The Danforth Center Bioinformatics Core has a Slack Channel <https://ddpsc-bioinfo.slack.com/>
+- The Danforth Center Bioinformatics Core has a Slack Channel <https://danforthcenter.slack.com/>
 	- A (free) account is required to join
 	- This is an excellent, in-house resource for asking questions from other scientists doing bioinformatics.
 
@@ -51,7 +51,7 @@ slot1@thanatos.ddp LINUX      X86_64 Unclaimed Idle      2.000 499558  6+20:46:2
 In the example below one job is in the queue and is running. The ST column lists the state of each job: I = Idle, R = Running, X = Removed, > = Transferring input files, < = Transferring output files.
 
 ```
--- Schedd: six.ddpsc.org : <10.5.1.63:15151?...
+-- Schedd: stargate.bioinformatics.danforthcenter.org : <10.5.1.63:15151?...
 ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
 30.0   nfahlgren       3/3  22:43   0+00:00:02 R  0   3.2  samtools view -b -
 

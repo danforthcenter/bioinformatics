@@ -19,7 +19,6 @@
 # Example vg docker universe Job
 ################################
 
-accounting_group        = $ENV(CONDOR_GROUP)
 log                     = $(Cluster).$(Process).condor.vg.log
 error                   = $(Cluster).$(Process).condor.vg.error
 request_cpus            = 1

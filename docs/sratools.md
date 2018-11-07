@@ -30,7 +30,6 @@
 universe                 = vanilla
 getenv                   = true
 
-accounting_group         = $ENV(CONDOR_GROUP)
 request_cpus             = $(cpu_req)
 request_memory           = $(memory_req)
 request_disk             = $(disk_req)
