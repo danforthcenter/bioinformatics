@@ -29,7 +29,7 @@ resources, and all license and contractual agreements. A user’s guide is avail
     consulted for any questions related to such issues.
     5. Users are responsible for reporting unauthorized access to Bioinformatics resources.
 2. Computing policies
-    1. Users should not run programs on the login (apollo) or HTCondor job scheduling (six) servers. All jobs should be 
+    1. Users should not run programs on the login and HTCondor job scheduling server (stargate). All jobs should be 
     submitted to the HTCondor cluster instead. Some small (e.g. text editing) or essential (e.g. ssh, screen, tmux, 
     etc.) programs are generally acceptable. A monitoring service runs on these servers that will email users about 
     processes that violate this policy. If you are unsure or feel you were emailed in error, please contact the 
@@ -60,7 +60,7 @@ resources, and all license and contractual agreements. A user’s guide is avail
     [DDPSC non-disclosure agreement](http://w3.ddpsc.org/hr/Confidential%20-%20Intellectual%20Property%20Emp.pdf).
     4. The Bioinformatics storage system is a shared filesystem, so copyrighted materials that do not allow sharing 
     should not be stored on this system.
-    5. File transfer via SFTP can be done using the login server (apollo). All other file transfer activity should be 
+    5. File transfer via SFTP can be done using the login server (stargate). All other file transfer activity should be 
     done on the dedicated file transfer server (chronos), or by submitting a job or interactive session request to the 
     HTCondor cluster.
 4. Prohibited activities
@@ -93,3 +93,4 @@ users for compliance and, if necessary, may involve the user’s supervisor.
 ## Change History
 
 * 2018-01-03: Initial text finalized.
+* 2018-11-06: Updated login/HTCondor server name.
