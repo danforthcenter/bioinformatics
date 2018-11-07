@@ -2,14 +2,12 @@
 
 ## Accessing HTCondor
 
-**Currently all HTCondor transactions can be done from `six`.**
-
-
+**Currently all HTCondor transactions can be done from `stargate`.**
 
 For work that needs to be done outside of the queue
 (e.g. software development/debugging, small file operations, etc.),
 an interactive session can be requested (see below). Jobs that require 
-more than a few seconds or more than 1 CPU cannot be run on `Six`.
+more than a few seconds or more than 1 CPU cannot be run on `stargate`.
 
 ![Interactive_vs_queue](images/bioinfo_core_jobs-02.png)
 
@@ -166,7 +164,7 @@ condor_submit -interactive request_cpus=10 request_memory=10G
 If you need to remove a job from the queue, find the job ID with `condor_q`:
 
 ```
--- Schedd: six.ddpsc.org : <10.5.1.63:15151?...
+-- Schedd: stargate.bioinformatics.danforthcenter.org : <10.5.1.63:15151?...
 ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
 30.0   nfahlgren       3/3  22:43   0+00:00:02 R  0   3.2  samtools view -b -
 
@@ -279,15 +277,6 @@ queue 1
 group = controls_4
 queue 1
 ```
-
-## Submitting jobs to the java universe
-
-If you are running a java application you must specify `universe = java`
-instead of `universe = vanilla` in your job file. Additionally, java
-universe jobs have a special configuration setting
-`jar_files = <path to jar file>/name.jar`. You must also keep the
-`executable = <path to executable>` option set, because it is required,
-but it is not used by java universe jobs. 
 
 ## Running a sequential set of jobs: DAGman
 

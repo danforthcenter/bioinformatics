@@ -5,7 +5,7 @@
 - The documentation for HTCondor is extensive. Many answers to 
 general questions can be easily found by including `HTCondor` 
 to your search.
-- The Danforth Center Bioinformatics Core has a Slack Channel <https://danforthcenter.slack.com/>
+- The Danforth Center Bioinformatics Core has a Slack channel on <https://danforthcenter.slack.com/>
 	- A (free) account is required to join
 	- This is an excellent, in-house resource for asking questions from other scientists doing bioinformatics.
 
@@ -17,7 +17,9 @@ to your search.
 condor_status
 ```
 
-In the example output below we can see that there are five servers currently configured to run jobs. Servers that are completely idle appear as one slot. Servers running one or more jobs will show up as divided into multiple slots, one per job and the remaining idle resources.
+In the example output below we can see that there are five servers currently configured to run jobs. Servers that 
+are completely idle appear as one slot. Servers running one or more jobs will show up as divided into multiple slots, 
+one per job and the remaining idle resources.
 
 ```
 Name               OpSys      Arch   State     Activity LoadAv Mem     ActvtyTime
@@ -59,7 +61,8 @@ To see all running jobs:
 condor_q -all
 ```
 
-In the example below one job is in the queue and is running. The ST column lists the state of each job: I = Idle, R = Running, X = Removed, > = Transferring input files, < = Transferring output files.
+In the example below one job is in the queue and is running. The ST column lists the state of each job: I = Idle, R = 
+Running, X = Removed, > = Transferring input files, < = Transferring output files.
 
 ```
 -- Schedd: six.ddpsc.org : <10.5.1.63:15151?...
