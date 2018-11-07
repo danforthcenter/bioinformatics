@@ -15,11 +15,11 @@ GitHub: [https://github.com/danforthcenter/](https://github.com/danforthcenter/)
 
 Docker: [https://hub.docker.com/u/danforthcenter/](https://hub.docker.com/u/danforthcenter/)
 
-Slack (virtual help desk): [https://ddpsc-bioinfo.slack.com](https://ddpsc-bioinfo.slack.com)
+Slack (virtual help desk): [https://danforthcenter.slack.com](https://danforthcenter.slack.com)
 
-[Jupyter Notebook](http://jupyter.org/) server: [https://jupyter.ddpsc.org](https://jupyter.ddpsc.org)
+[Jupyter Notebook](http://jupyter.org/) server: [https://jupyter.bioinformatics.danforthcenter.org](https://jupyter.bioinformatics.danforthcenter.org)
 
-Login (SSH/SFTP) server: apollo.ddpsc.org
+Login (SSH/SFTP) server: stargate.bioinformatics.danforthcenter.org
 
 Globus GridFTP server: chronos.bioinformatics.danforthcenter.org (see [here](globus.md) for more details)
 
@@ -27,7 +27,7 @@ Globus GridFTP server: chronos.bioinformatics.danforthcenter.org (see [here](glo
 
 ### Jupyter Notebook access
 
-On any platform, point your web browser to [https://jupyter.ddpsc.org](https://jupyter.ddpsc.org) and enter your
+On any platform, point your web browser to [https://jupyter.bioinformatics.danforthcenter.org](https://jupyter.bioinformatics.danforthcenter.org) and enter your
 Bioinformatics username and password.
 
 ### Command-line access
@@ -48,7 +48,7 @@ infrastructure. Below are some recommended applications by platform.
 
 To log into the system via ssh, open one of the above applications and enter the command:
 
-`ssh username@apollo.ddpsc.org`
+`ssh username@stargate.bioinformatics.danforthcenter.org`
 
 where username is your Bioinformatics username. The first time you log in you will need to
 type "yes" to accept the server's key.
