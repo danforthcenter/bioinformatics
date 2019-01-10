@@ -8,8 +8,8 @@
 
 **Updated**: 2016-05-16
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/gffread
+**Source directory**: /bioinfo/installs/gffread
 
 **Link**: [gffread](https://github.com/gpertea/gffread)

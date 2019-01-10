@@ -8,9 +8,9 @@
 
 **Updated**: 2016-03-15
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/aspera-connect-3.6.2
+**Source directory**: /bioinfo/installs/aspera-connect-3.6.2
 
 **Link**: [Aspera-Connect](http://downloads.asperasoft.com/connect2/)
 

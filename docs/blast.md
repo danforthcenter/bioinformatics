@@ -8,8 +8,8 @@
 
 **Updated**: 2016-11-14
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/ncbi/ncbi-blast-2.5.0+-src
+**Source directory**: /bioinfo/installs/ncbi/ncbi-blast-2.5.0+-src
 
 **Link**: [NCBI-BLAST+](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download)

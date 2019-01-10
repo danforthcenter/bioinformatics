@@ -8,8 +8,8 @@
 
 **Updated**: 2017-04-07
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/shore-0.9.3
+**Source directory**: /bioinfo/installs/shore-0.9.3
 
 **Link**: [SHORE](http://1001genomes.org/software/shore.html)

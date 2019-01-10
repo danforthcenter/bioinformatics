@@ -8,8 +8,8 @@
 
 **Updated**: 2016-11-02
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/kallisto_linux-v0.43.0
+**Source directory**: /bioinfo/installs/kallisto_linux-v0.43.0
 
 **Link**: [Kallisto](https://pachterlab.github.io/kallisto/)

@@ -8,8 +8,8 @@
 
 **Updated**: 2017-01-20
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/SPAdes-3.9.1-Linux
+**Source directory**: /bioinfo/installs/SPAdes-3.9.1-Linux
 
 **Link**: [SPAdes](http://cab.spbu.ru/software/spades/)

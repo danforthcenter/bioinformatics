@@ -8,8 +8,8 @@
 
 **Updated**: 2016-12-08
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/bowtie
+**Source directory**: /bioinfo/installs/bowtie
 
 **Link**: [Bowtie](http://bowtie-bio.sourceforge.net/manual.shtml)

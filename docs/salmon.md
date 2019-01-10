@@ -8,8 +8,8 @@
 
 **Updated**: 2017-05-03
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/Salmon-0.8.2_linux_x86_64
+**Source directory**: /bioinfo/installs/Salmon-0.8.2_linux_x86_64
 
 **Link**: [Salmon](http://salmon.readthedocs.io/)

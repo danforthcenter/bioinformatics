@@ -8,8 +8,8 @@
 
 **Updated**: 2016-12-08
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/bbmap
+**Source directory**: /bioinfo/installs/bbmap
 
 **Link**: [BBTools](http://jgi.doe.gov/data-and-tools/bbtools/)

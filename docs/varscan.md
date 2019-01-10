@@ -8,8 +8,8 @@
 
 **Updated**: 2016-01-25
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/varscan
+**Source directory**: /bioinfo/installs/varscan
 
 **Link**: [VarScan](http://dkoboldt.github.io/varscan/)

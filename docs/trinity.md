@@ -8,9 +8,9 @@
 
 **Updated**: 2015-10-28
 
-**Installation directory**: /shares/bioinfo/installs/trinity
+**Installation directory**: /bioinfo/installs/trinity
 
-**Source directory**: /shares/bioinfo/installs/trinity
+**Source directory**: /bioinfo/installs/trinity
 
 **Link**: [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
 
@@ -41,7 +41,7 @@ error                    = $(condor_output)$(run_type).$(ID).err
 log                      = $(condor_output)$(run_type).$(ID).log
 ###################
 
-executable               = /shares/bioinfo/installs/trinity/Trinity
+executable               = /bioinfo/installs/trinity/Trinity
 arguments                = --seqType fq --CPU $(cpu_req) --max_memory $(memory_req) --output $(output_name)/ --SS_lib_type RF --left left.fastq.gz --right right.fastq.gz
 
 

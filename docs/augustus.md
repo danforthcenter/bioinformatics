@@ -8,8 +8,8 @@
 
 **Updated**: 2017-10-27
 
-**Installation directory**: /shares/bioinfo/installs/augustus/bin
+**Installation directory**: /bioinfo/installs/augustus/bin
 
-**Source directory**: /shares/bioinfo/installs/augustus
+**Source directory**: /bioinfo/installs/augustus
 
 **Link**: [Augustus](http://bioinf.uni-greifswald.de/augustus/)

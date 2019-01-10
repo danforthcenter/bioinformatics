@@ -8,9 +8,9 @@
 
 **Updated**: 2018-01-08
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/ncbi/sra-tools
+**Source directory**: /bioinfo/installs/ncbi/sra-tools
 
 **Link**: [SRA-Tools](http://ncbi.github.io/sra-tools/)
 
@@ -49,7 +49,7 @@ log                      = $(condor_output)/$(run_type).$(ID).log
 ## Executable & arguments
 ###############################################################################################
 
-executable               = /shares/bioinfo/bin/fastq-dump
+executable               = /bioinfo/bin/fastq-dump
 arguments                = -I --split-files --gzip $(SRA_record)
 
 transfer_executable      = False

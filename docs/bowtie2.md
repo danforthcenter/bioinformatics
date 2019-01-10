@@ -8,9 +8,9 @@
 
 **Updated**: 2016-04-21
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/bowtie2-2.2.9
+**Source directory**: /bioinfo/installs/bowtie2-2.2.9
 
 **Link**: [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
@@ -40,7 +40,7 @@ error                    = $(condor_output)$(run_type).$(ID).err
 log                      = $(condor_output)$(run_type).$(ID).log
 ###################
 
-executable               = /shares/bioinfo/bin/bowtie2
+executable               = /bioinfo/bin/bowtie2
 arguments                = -q --threads $(cpu_req) -x /path/to/genome.fa -1 pair1.reads.fastq.qz -2 pair2.reads.fastq.gz -S alignment.sam
 
 

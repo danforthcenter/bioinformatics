@@ -8,8 +8,8 @@
 
 **Updated**: 2016-12-08
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/hisat2
+**Source directory**: /bioinfo/installs/hisat2
 
 **Link**: [HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml)

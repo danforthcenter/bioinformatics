@@ -8,8 +8,8 @@
 
 **Updated**: 2016-11-03
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/bamtools
+**Source directory**: /bioinfo/installs/bamtools
 
 **Link**: [Bamtools](https://github.com/pezmaster31/bamtools)

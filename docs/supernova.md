@@ -9,8 +9,8 @@ Chromium Linked-Reads that are made from a single whole-genome library from an i
 
 **Updated**: 2017-06-26
 
-**Installation directory**: /shares/bioinfo/installs/supernova-1.2.0
+**Installation directory**: /bioinfo/installs/supernova-1.2.0
 
-**Source directory**: /shares/bioinfo/installs/supernova-1.2.0
+**Source directory**: /bioinfo/installs/supernova-1.2.0
 
 **Link**: [Supernova](https://support.10xgenomics.com/de-novo-assembly/software/overview/welcome)

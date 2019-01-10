@@ -8,8 +8,8 @@
 
 **Updated**: 2017-04-07
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/CNVnator_v0.3.3
+**Source directory**: /bioinfo/installs/CNVnator_v0.3.3
 
 **Link**: [CNVnator](https://github.com/abyzovlab/CNVnator)

@@ -8,8 +8,8 @@
 
 **Updated**: 2017-10-27
 
-**Installation directory**: /shares/bioinfo/installs/BRAKER1_v1.11
+**Installation directory**: /bioinfo/installs/BRAKER1_v1.11
 
-**Source directory**: /shares/bioinfo/installs/BRAKER1_v1.11
+**Source directory**: /bioinfo/installs/BRAKER1_v1.11
 
 **Link**: [BRAKER](http://exon.gatech.edu/braker1.html)

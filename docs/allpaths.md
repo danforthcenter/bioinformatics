@@ -8,8 +8,8 @@
 
 **Updated**: 2016-01-03
 
-**Installation directory**: /shares/bioinfo/bin
+**Installation directory**: /bioinfo/bin
 
-**Source directory**: /shares/bioinfo/installs/allpathslg-52488
+**Source directory**: /bioinfo/installs/allpathslg-52488
 
 **Link**: [ALLPATHS-LG](http://www.broadinstitute.org/software/allpaths-lg/blog/)
