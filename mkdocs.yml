@@ -30,6 +30,7 @@ pages:
     - "CNVnator": cnvnator.md
     - "Gffread": gffread.md
     - "HISAT2": hisat2.md
+    - "InterProScan": interproscan.md
     - "Kallisto": kallisto.md
     - "NCBI BLAST+": blast.md
     - "Salmon": salmon.md
