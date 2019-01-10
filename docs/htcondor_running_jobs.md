@@ -71,7 +71,7 @@ log              = bowtie2.alignment.log
 output           = bowtie2.alignment.out
 error            = bowtie2.alignment.error
 
-executable       = /shares/bioinfo/bin/bowtie2
+executable       = /bioinfo/bin/bowtie2
 arguments        = -f --no-unal --threads 30 -x reference.fasta -U reads.fasta -S alignment.sam
 
 queue
@@ -211,7 +211,7 @@ additional job file configuration is needed:
 
 universe         = vanilla
 getenv           = true
-executable       = /shares/bioinfo/bin/hisat2
+executable       = /bioinfo/bin/hisat2
 arguments        = -q -x genome.fa -U singleEnd.fastq -S output.sam --rna-strandness R -p 20
 log              = hisat2.groupID.log
 output           = hisat2.groupID.out
@@ -255,7 +255,7 @@ on DAG.
 
 universe         = vanilla
 getenv           = true
-executable       = /shares/bioinfo/bin/cufflinks
+executable       = /bioinfo/bin/cufflinks
 arguments        = -o output/$(group) --GTF-guide file.gtf -p 15 --library-type fr-firststrand -u -L $(group) $(group)_RNAseq.bam
 log              = $(group).cufflinks.log
 output           = $(group).cufflinks.out
@@ -277,6 +277,86 @@ queue 1
 group = controls_4
 queue 1
 ```
+
+## Running multiple jobs using a batch file
+
+Rather than writing out each job queue statement as above, you can read data from an input file and use the data as
+parameters for your condor job. Following the example above, you could create a text file with the group names:
+
+file-of-groups.txt
+
+```
+controls_1
+controls_2
+controls_3
+controls_4
+```
+
+Using the condor job file example above, you can use this file of group names to queue each job:
+
+```
+####################
+#
+# Example Vanilla Universe Job :: 
+# This launches multiple jobs, using the 'group' variable info to find 
+# and create the required files [this example would queue up 4 jobs]
+# Multi-CPU HTCondor submit description file
+#
+####################
+
+universe         = vanilla
+getenv           = true
+executable       = /bioinfo/bin/cufflinks
+arguments        = -o output/$(group) --GTF-guide file.gtf -p 15 --library-type fr-firststrand -u -L $(group) $(group)_RNAseq.bam
+log              = $(group).cufflinks.log
+output           = $(group).cufflinks.out
+error            = $(group).cufflinks.error
+request_cpus     = 15
+request_memory   = 10G
+
+###################
+
+queue group from file-of-groups.txt
+```
+
+The input file can also have multiple variables in a tab-delimited format:
+
+file-of-vars.txt
+
+```
+output/controls_1    controls_1    controls_1_RNAseq.bam
+output/controls_2    controls_2    controls_2_RNAseq.bam
+output/controls_3    controls_3    controls_3_RNAseq.bam
+output/controls_4    controls_4    controls_4_RNAseq.bam
+```
+
+Then assign multiple variables from the input file with queue:
+
+```
+####################
+#
+# Example Vanilla Universe Job :: 
+# This launches multiple jobs, using the 'group' variable info to find 
+# and create the required files [this example would queue up 4 jobs]
+# Multi-CPU HTCondor submit description file
+#
+####################
+
+universe         = vanilla
+getenv           = true
+executable       = /bioinfo/bin/cufflinks
+arguments        = -o $(outdir) --GTF-guide file.gtf -p 15 --library-type fr-firststrand -u -L $(group) $(outfile)
+log              = $(group).cufflinks.log
+output           = $(group).cufflinks.out
+error            = $(group).cufflinks.error
+request_cpus     = 15
+request_memory   = 10G
+
+###################
+
+queue outdir, group, outfile from file-of-vars.txt
+```
+
 
 ## Running a sequential set of jobs: DAGman
 
