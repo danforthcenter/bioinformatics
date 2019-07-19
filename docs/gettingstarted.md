@@ -17,7 +17,7 @@ Docker: [https://hub.docker.com/u/danforthcenter/](https://hub.docker.com/u/danf
 
 Slack (virtual help desk): [https://danforthcenter.slack.com](https://danforthcenter.slack.com)
 
-[Jupyter Notebook](http://jupyter.org/) server: [https://jupyter.bioinformatics.danforthcenter.org](https://jupyter.bioinformatics.danforthcenter.org)
+[Jupyter Notebook](http://jupyter.org/) server: [https://jupyter.datasci.danforthcenter.org](https://jupyter.datasci.danforthcenter.org)
 
 Login (SSH/SFTP) server: stargate.datasci.danforthcenter.org
 
